@@ -9,12 +9,15 @@
     <body class="min-h-screen bg-cloud text-ink">
         <div class="flex min-h-screen">
             <x-sidebar.employee />
+            <button type="button" class="fixed inset-0 z-30 hidden bg-ink/50 lg:hidden" data-sidebar-overlay="#employee-sidebar" data-toggle-sidebar="#employee-sidebar" aria-label="Tutup sidebar karyawan"></button>
 
             <div class="flex min-h-screen flex-1 flex-col lg:pl-72">
                 <x-topbar.employee />
 
                 <main class="flex-1 p-4 md:p-6 xl:p-8">
-                    {{ $slot }}
+                    <x-content.container class="space-y-6">
+                        {{ $slot }}
+                    </x-content.container>
                 </main>
             </div>
         </div>

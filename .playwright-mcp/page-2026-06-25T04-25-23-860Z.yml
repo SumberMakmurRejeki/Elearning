@@ -1,0 +1,16 @@
+- main [ref=e2]:
+  - generic [ref=e4]:
+    - generic [ref=e5]:
+      - paragraph [ref=e6]: Sistem Internal Perusahaan
+      - heading "Login E-Learning" [level=1] [ref=e7]
+      - paragraph [ref=e8]: Masuk sebagai Admin atau Karyawan menggunakan username dan password.
+    - generic [ref=e9]:
+      - generic [ref=e10]:
+        - generic [ref=e11]: Username
+        - textbox "Username" [ref=e12]:
+          - /placeholder: Masukkan username
+      - generic [ref=e13]:
+        - generic [ref=e14]: Password
+        - textbox "Password" [ref=e15]:
+          - /placeholder: Masukkan password
+      - button "Login" [ref=e16]

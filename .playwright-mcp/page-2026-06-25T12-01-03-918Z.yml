@@ -1,0 +1,194 @@
+- generic [ref=e2]:
+  - complementary [ref=e3]:
+    - generic [ref=e5]:
+      - paragraph [ref=e6]: Admin Panel
+      - heading "E-Learning Training Karyawan" [level=1] [ref=e7]
+    - navigation [ref=e8]:
+      - generic [ref=e9]:
+        - paragraph [ref=e10]: Dashboard
+        - link "Dashboard Admin" [ref=e12] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/admin/dashboard
+      - generic [ref=e13]:
+        - paragraph [ref=e14]: Master Data
+        - generic [ref=e15]:
+          - link "Karyawan" [ref=e16] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/admin/karyawan
+          - link "Divisi" [ref=e17] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/admin/divisi
+          - link "Jabatan" [ref=e18] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/admin/jabatan
+      - generic [ref=e19]:
+        - paragraph [ref=e20]: Master Training
+        - generic [ref=e21]:
+          - link "Daftar Training" [ref=e22] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/admin/daftar-training
+          - link "Materi Training" [ref=e23] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/admin/materi-training
+          - link "Soal Test" [ref=e24] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/admin/soal-test
+          - link "Penugasan Training" [ref=e25] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/admin/penugasan-training
+      - generic [ref=e26]:
+        - paragraph [ref=e27]: Penilaian
+        - generic [ref=e28]:
+          - link "Jawaban Essay" [ref=e29] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/admin/jawaban-essay
+          - link "Hasil Test" [ref=e30] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/admin/hasil-test
+      - generic [ref=e31]:
+        - paragraph [ref=e32]: Monitoring & Laporan
+        - generic [ref=e33]:
+          - link "Progress Training" [ref=e34] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/admin/progress-training
+          - link "Laporan" [ref=e35] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/admin/laporan
+          - link "Export Data" [ref=e36] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/admin/export-data
+      - generic [ref=e37]:
+        - paragraph [ref=e38]: Pengaturan User
+        - generic [ref=e39]:
+          - link "Profil Admin" [ref=e40] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/admin/profil
+          - link "Ubah Password" [ref=e41] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/admin/ubah-password
+  - generic [ref=e42]:
+    - banner [ref=e43]:
+      - generic [ref=e44]:
+        - generic [ref=e46]:
+          - paragraph [ref=e47]: Role Admin
+          - heading "Dashboard Admin" [level=2] [ref=e48]
+        - generic [ref=e49]:
+          - generic [ref=e50]:
+            - paragraph [ref=e51]: QA Admin
+            - paragraph [ref=e52]: admin
+          - generic [ref=e53]: QA
+          - button "Logout" [ref=e55]
+    - main [ref=e56]:
+      - generic [ref=e58]:
+        - generic [ref=e59]:
+          - generic [ref=e60]:
+            - paragraph [ref=e61]: Master Data
+            - generic [ref=e62]:
+              - heading "Master Data Karyawan" [level=1] [ref=e63]
+              - paragraph [ref=e64]: Kelola akun dan profil karyawan yang dapat mengakses sistem.
+          - link "Tambah Karyawan" [ref=e66] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/admin/karyawan/create
+        - generic [ref=e68]:
+          - generic [ref=e69]:
+            - generic [ref=e70]: Search karyawan
+            - searchbox "Search karyawan" [ref=e71]
+          - generic [ref=e72]:
+            - generic [ref=e73]: Divisi
+            - combobox "Divisi" [ref=e74]:
+              - option "Semua" [selected]
+              - option "Finance Lama"
+              - option "HRD"
+              - option "Operasional"
+              - option "QA Divisi"
+          - generic [ref=e75]:
+            - generic [ref=e76]: Jabatan
+            - combobox "Jabatan" [ref=e77]:
+              - option "Semua" [selected]
+              - option "QA Staff"
+              - option "Staff"
+              - option "Supervisor"
+              - option "Supervisor Lama"
+          - generic [ref=e78]:
+            - generic [ref=e79]: Status
+            - combobox "Status" [ref=e80]:
+              - option "Semua" [selected]
+              - option "Aktif"
+              - option "Nonaktif"
+          - generic [ref=e81]:
+            - button "Cari / Filter" [ref=e82]
+            - link "Reset" [ref=e83] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/admin/karyawan
+        - table [ref=e87]:
+          - rowgroup [ref=e88]:
+            - row "No Karyawan NIP/ID Divisi / Jabatan Status Login Terakhir Aksi" [ref=e89]:
+              - columnheader "No" [ref=e90]
+              - columnheader "Karyawan" [ref=e91]
+              - columnheader "NIP/ID" [ref=e92]
+              - columnheader "Divisi / Jabatan" [ref=e93]
+              - columnheader "Status" [ref=e94]
+              - columnheader "Login Terakhir" [ref=e95]
+              - columnheader "Aksi" [ref=e96]
+          - rowgroup [ref=e97]:
+            - row "1 Budi Santoso budi01 EMP-001 HRD Staff Aktif 25 Jun 2026, 00:57 Detail Budi Santoso Edit Budi Santoso Nonaktifkan Budi Santoso Delete permanen Budi Santoso" [ref=e98]:
+              - cell "1" [ref=e99]
+              - cell "Budi Santoso budi01" [ref=e100]:
+                - generic [ref=e101]:
+                  - paragraph [ref=e102]: Budi Santoso
+                  - paragraph [ref=e103]: budi01
+              - cell "EMP-001" [ref=e104]
+              - cell "HRD Staff" [ref=e105]:
+                - generic [ref=e106]:
+                  - paragraph [ref=e107]: HRD
+                  - paragraph [ref=e108]: Staff
+              - cell "Aktif" [ref=e109]:
+                - generic [ref=e110]: Aktif
+              - cell "25 Jun 2026, 00:57" [ref=e111]
+              - cell "Detail Budi Santoso Edit Budi Santoso Nonaktifkan Budi Santoso Delete permanen Budi Santoso" [ref=e112]:
+                - generic [ref=e113]:
+                  - link "Detail Budi Santoso" [ref=e114] [cursor=pointer]:
+                    - /url: http://127.0.0.1:8000/admin/karyawan/1
+                    - img [ref=e115]
+                  - link "Edit Budi Santoso" [ref=e118] [cursor=pointer]:
+                    - /url: http://127.0.0.1:8000/admin/karyawan/1/edit
+                    - img [ref=e119]
+                  - button "Nonaktifkan Budi Santoso" [ref=e122]:
+                    - img [ref=e123]
+                  - button "Delete permanen Budi Santoso" [ref=e125]:
+                    - img [ref=e126]
+            - row "2 QA Employee qa-employee EMP-QA-001 QA Divisi QA Staff Aktif - Detail QA Employee Edit QA Employee Nonaktifkan QA Employee Delete permanen QA Employee" [ref=e130]:
+              - cell "2" [ref=e131]
+              - cell "QA Employee qa-employee" [ref=e132]:
+                - generic [ref=e133]:
+                  - paragraph [ref=e134]: QA Employee
+                  - paragraph [ref=e135]: qa-employee
+              - cell "EMP-QA-001" [ref=e136]
+              - cell "QA Divisi QA Staff" [ref=e137]:
+                - generic [ref=e138]:
+                  - paragraph [ref=e139]: QA Divisi
+                  - paragraph [ref=e140]: QA Staff
+              - cell "Aktif" [ref=e141]:
+                - generic [ref=e142]: Aktif
+              - cell "-" [ref=e143]
+              - cell "Detail QA Employee Edit QA Employee Nonaktifkan QA Employee Delete permanen QA Employee" [ref=e144]:
+                - generic [ref=e145]:
+                  - link "Detail QA Employee" [ref=e146] [cursor=pointer]:
+                    - /url: http://127.0.0.1:8000/admin/karyawan/3
+                    - img [ref=e147]
+                  - link "Edit QA Employee" [ref=e150] [cursor=pointer]:
+                    - /url: http://127.0.0.1:8000/admin/karyawan/3/edit
+                    - img [ref=e151]
+                  - button "Nonaktifkan QA Employee" [ref=e154]:
+                    - img [ref=e155]
+                  - button "Delete permanen QA Employee" [ref=e157]:
+                    - img [ref=e158]
+            - row "3 Siti Rahma siti01 EMP-002 Operasional Supervisor Nonaktif - Detail Siti Rahma Edit Siti Rahma Aktifkan Siti Rahma Delete permanen Siti Rahma" [ref=e162]:
+              - cell "3" [ref=e163]
+              - cell "Siti Rahma siti01" [ref=e164]:
+                - generic [ref=e165]:
+                  - paragraph [ref=e166]: Siti Rahma
+                  - paragraph [ref=e167]: siti01
+              - cell "EMP-002" [ref=e168]
+              - cell "Operasional Supervisor" [ref=e169]:
+                - generic [ref=e170]:
+                  - paragraph [ref=e171]: Operasional
+                  - paragraph [ref=e172]: Supervisor
+              - cell "Nonaktif" [ref=e173]:
+                - generic [ref=e174]: Nonaktif
+              - cell "-" [ref=e175]
+              - cell "Detail Siti Rahma Edit Siti Rahma Aktifkan Siti Rahma Delete permanen Siti Rahma" [ref=e176]:
+                - generic [ref=e177]:
+                  - link "Detail Siti Rahma" [ref=e178] [cursor=pointer]:
+                    - /url: http://127.0.0.1:8000/admin/karyawan/2
+                    - img [ref=e179]
+                  - link "Edit Siti Rahma" [ref=e182] [cursor=pointer]:
+                    - /url: http://127.0.0.1:8000/admin/karyawan/2/edit
+                    - img [ref=e183]
+                  - button "Aktifkan Siti Rahma" [ref=e186]:
+                    - img [ref=e187]
+                  - button "Delete permanen Siti Rahma" [ref=e189]:
+                    - img [ref=e190]

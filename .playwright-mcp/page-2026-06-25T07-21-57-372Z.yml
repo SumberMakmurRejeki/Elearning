@@ -1,0 +1,156 @@
+- generic [ref=e2]:
+  - complementary [ref=e3]:
+    - generic [ref=e5]:
+      - paragraph [ref=e6]: Admin Panel
+      - heading "E-Learning Training Karyawan" [level=1] [ref=e7]
+    - navigation [ref=e8]:
+      - generic [ref=e9]:
+        - paragraph [ref=e10]: Dashboard
+        - link "Dashboard Admin" [ref=e12] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/admin/dashboard
+      - generic [ref=e13]:
+        - paragraph [ref=e14]: Master Data
+        - generic [ref=e15]:
+          - link "Karyawan" [ref=e16] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/admin/karyawan
+          - link "Divisi" [ref=e17] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/admin/divisi
+          - link "Jabatan" [ref=e18] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/admin/jabatan
+      - generic [ref=e19]:
+        - paragraph [ref=e20]: Master Training
+        - generic [ref=e21]:
+          - link "Daftar Training" [ref=e22] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/admin/daftar-training
+          - link "Materi Training" [ref=e23] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/admin/materi-training
+          - link "Soal Test" [ref=e24] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/admin/soal-test
+          - link "Penugasan Training" [ref=e25] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/admin/penugasan-training
+      - generic [ref=e26]:
+        - paragraph [ref=e27]: Penilaian
+        - generic [ref=e28]:
+          - link "Jawaban Essay" [ref=e29] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/admin/jawaban-essay
+          - link "Hasil Test" [ref=e30] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/admin/hasil-test
+      - generic [ref=e31]:
+        - paragraph [ref=e32]: Monitoring & Laporan
+        - generic [ref=e33]:
+          - link "Progress Training" [ref=e34] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/admin/progress-training
+          - link "Laporan" [ref=e35] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/admin/laporan
+          - link "Export Data" [ref=e36] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/admin/export-data
+      - generic [ref=e37]:
+        - paragraph [ref=e38]: Pengaturan User
+        - generic [ref=e39]:
+          - link "Profil Admin" [ref=e40] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/admin/profil
+          - link "Ubah Password" [ref=e41] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/admin/ubah-password
+  - generic [ref=e42]:
+    - banner [ref=e43]:
+      - generic [ref=e44]:
+        - generic [ref=e46]:
+          - paragraph [ref=e47]: Role Admin
+          - heading "Dashboard Admin" [level=2] [ref=e48]
+        - generic [ref=e49]:
+          - generic [ref=e50]:
+            - paragraph [ref=e51]: Admin Training
+            - paragraph [ref=e52]: admin
+          - generic [ref=e53]: AT
+          - button "Logout" [ref=e55]
+    - main [ref=e56]:
+      - generic [ref=e58]:
+        - generic [ref=e59]:
+          - generic [ref=e60]:
+            - paragraph [ref=e61]: Master Data
+            - generic [ref=e62]:
+              - heading "Master Data Divisi" [level=1] [ref=e63]
+              - paragraph [ref=e64]: Kelola data divisi perusahaan.
+          - link "Tambah Divisi" [ref=e66] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/admin/divisi/create
+        - generic [ref=e68]:
+          - generic [ref=e69]:
+            - generic [ref=e70]: Search nama divisi
+            - searchbox "Search nama divisi" [ref=e71]
+          - generic [ref=e72]:
+            - generic [ref=e73]: Status
+            - combobox "Status" [ref=e74]:
+              - option "Semua" [selected]
+              - option "Aktif"
+              - option "Nonaktif"
+          - generic [ref=e75]:
+            - button "Cari / Filter" [ref=e76]
+            - link "Reset" [ref=e77] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/admin/divisi
+        - table [ref=e81]:
+          - rowgroup [ref=e82]:
+            - row "No Nama Divisi Deskripsi Singkat Status Tanggal Dibuat Aksi" [ref=e83]:
+              - columnheader "No" [ref=e84]
+              - columnheader "Nama Divisi" [ref=e85]
+              - columnheader "Deskripsi Singkat" [ref=e86]
+              - columnheader "Status" [ref=e87]
+              - columnheader "Tanggal Dibuat" [ref=e88]
+              - columnheader "Aksi" [ref=e89]
+          - rowgroup [ref=e90]:
+            - row "1 Finance Lama Contoh divisi nonaktif Nonaktif 25 Jun 2026 Detail Finance Lama Edit Finance Lama Aktifkan Finance Lama Delete permanen Finance Lama" [ref=e91]:
+              - cell "1" [ref=e92]
+              - cell "Finance Lama" [ref=e93]
+              - cell "Contoh divisi nonaktif" [ref=e94]
+              - cell "Nonaktif" [ref=e95]:
+                - generic [ref=e96]: Nonaktif
+              - cell "25 Jun 2026" [ref=e97]
+              - cell "Detail Finance Lama Edit Finance Lama Aktifkan Finance Lama Delete permanen Finance Lama" [ref=e98]:
+                - generic [ref=e99]:
+                  - link "Detail Finance Lama" [ref=e100] [cursor=pointer]:
+                    - /url: http://127.0.0.1:8000/admin/divisi/3
+                    - img [ref=e101]
+                  - link "Edit Finance Lama" [ref=e104] [cursor=pointer]:
+                    - /url: http://127.0.0.1:8000/admin/divisi/3/edit
+                    - img [ref=e105]
+                  - button "Aktifkan Finance Lama" [ref=e108]:
+                    - img [ref=e109]
+                  - button "Delete permanen Finance Lama" [ref=e111]:
+                    - img [ref=e112]
+            - row "2 HRD Human Resource Development Aktif 25 Jun 2026 Detail HRD Edit HRD Nonaktifkan HRD Delete permanen HRD" [ref=e116]:
+              - cell "2" [ref=e117]
+              - cell "HRD" [ref=e118]
+              - cell "Human Resource Development" [ref=e119]
+              - cell "Aktif" [ref=e120]:
+                - generic [ref=e121]: Aktif
+              - cell "25 Jun 2026" [ref=e122]
+              - cell "Detail HRD Edit HRD Nonaktifkan HRD Delete permanen HRD" [ref=e123]:
+                - generic [ref=e124]:
+                  - link "Detail HRD" [ref=e125] [cursor=pointer]:
+                    - /url: http://127.0.0.1:8000/admin/divisi/1
+                    - img [ref=e126]
+                  - link "Edit HRD" [ref=e129] [cursor=pointer]:
+                    - /url: http://127.0.0.1:8000/admin/divisi/1/edit
+                    - img [ref=e130]
+                  - button "Nonaktifkan HRD" [ref=e133]:
+                    - img [ref=e134]
+                  - button "Delete permanen HRD" [ref=e136]:
+                    - img [ref=e137]
+            - row "3 Operasional Divisi operasional perusahaan Aktif 25 Jun 2026 Detail Operasional Edit Operasional Nonaktifkan Operasional Delete permanen Operasional" [ref=e141]:
+              - cell "3" [ref=e142]
+              - cell "Operasional" [ref=e143]
+              - cell "Divisi operasional perusahaan" [ref=e144]
+              - cell "Aktif" [ref=e145]:
+                - generic [ref=e146]: Aktif
+              - cell "25 Jun 2026" [ref=e147]
+              - cell "Detail Operasional Edit Operasional Nonaktifkan Operasional Delete permanen Operasional" [ref=e148]:
+                - generic [ref=e149]:
+                  - link "Detail Operasional" [ref=e150] [cursor=pointer]:
+                    - /url: http://127.0.0.1:8000/admin/divisi/2
+                    - img [ref=e151]
+                  - link "Edit Operasional" [ref=e154] [cursor=pointer]:
+                    - /url: http://127.0.0.1:8000/admin/divisi/2/edit
+                    - img [ref=e155]
+                  - button "Nonaktifkan Operasional" [ref=e158]:
+                    - img [ref=e159]
+                  - button "Delete permanen Operasional" [ref=e161]:
+                    - img [ref=e162]

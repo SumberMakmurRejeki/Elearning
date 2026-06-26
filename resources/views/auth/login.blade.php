@@ -6,13 +6,15 @@
             <p class="mt-2 text-sm text-charcoal">Masuk sebagai Admin atau Karyawan menggunakan username dan password.</p>
         </div>
 
-        <form class="space-y-5">
+        <form method="POST" action="{{ route('login.store') }}" class="space-y-5">
+            @csrf
+
+            @error('auth')
+                <x-alert variant="danger" title="Login gagal">{{ $message }}</x-alert>
+            @enderror
+
             <x-form.input label="Username" name="username" placeholder="Masukkan username" />
             <x-form.input label="Password" name="password" type="password" placeholder="Masukkan password" />
-
-            <x-alert variant="danger" title="Preview UI">
-                Halaman ini baru layout foundation. Logic auth dikerjakan di epic berikutnya.
-            </x-alert>
 
             <x-button.primary type="submit" class="w-full">Login</x-button.primary>
         </form>

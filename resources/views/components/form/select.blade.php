@@ -2,15 +2,17 @@
     'label' => null,
     'name',
     'id' => null,
-    'options' => [],
-    'placeholder' => 'Pilih opsi',
+    'help' => null,
     'error' => null,
+    'options' => [],
+    'placeholder' => null,
+    'selected' => null,
 ])
 
 @php
     $fieldId = $id ?? $name;
     $fieldError = $error ?? $errors->first($name);
-    $selected = old($name, $attributes->get('value'));
+    $fieldValue = old($name, $selected);
 @endphp
 
 <div class="space-y-2">
@@ -27,11 +29,18 @@
             'border-fog' => ! $fieldError,
         ]) }}
     >
-        <option value="">{{ $placeholder }}</option>
-        @foreach ($options as $value => $text)
-            <option value="{{ $value }}" @selected((string) $selected === (string) $value)>{{ $text }}</option>
+        @if ($placeholder)
+            <option value="">{{ $placeholder }}</option>
+        @endif
+
+        @foreach ($options as $value => $optionLabel)
+            <option value="{{ $value }}" @selected((string) $fieldValue !== '' && (string) $fieldValue === (string) $value)>{{ $optionLabel }}</option>
         @endforeach
     </select>
+
+    @if ($help && ! $fieldError)
+        <p class="text-xs text-graphite">{{ $help }}</p>
+    @endif
 
     @if ($fieldError)
         <p class="text-xs font-medium text-danger">{{ $fieldError }}</p>

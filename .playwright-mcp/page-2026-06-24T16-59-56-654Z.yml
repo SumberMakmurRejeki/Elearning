@@ -1,0 +1,103 @@
+- generic [ref=e2]:
+  - complementary [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e5]:
+        - paragraph [ref=e6]: Portal Karyawan
+        - heading "E-Learning Training Karyawan" [level=1] [ref=e7]
+      - button "Tutup" [ref=e8]
+    - navigation [ref=e9]:
+      - generic [ref=e10]:
+        - paragraph [ref=e11]: Dashboard
+        - link "Dashboard Karyawan" [ref=e13] [cursor=pointer]:
+          - /url: "#"
+      - generic [ref=e14]:
+        - paragraph [ref=e15]: Training
+        - generic [ref=e16]:
+          - link "Training Saya" [ref=e17] [cursor=pointer]:
+            - /url: "#"
+          - link "Riwayat Training" [ref=e18] [cursor=pointer]:
+            - /url: "#"
+      - generic [ref=e19]:
+        - paragraph [ref=e20]: Akun
+        - generic [ref=e21]:
+          - link "Profil" [ref=e22] [cursor=pointer]:
+            - /url: "#"
+          - link "Ubah Password" [ref=e23] [cursor=pointer]:
+            - /url: "#"
+  - generic [ref=e24]:
+    - banner [ref=e25]:
+      - generic [ref=e26]:
+        - generic [ref=e27]:
+          - button "Menu" [ref=e28]
+          - generic [ref=e29]:
+            - paragraph [ref=e30]: Preview UI Foundation
+            - heading "Dashboard Karyawan" [level=2] [ref=e31]
+        - generic [ref=e33]: BS
+    - main [ref=e34]:
+      - generic [ref=e36]:
+        - generic [ref=e37]:
+          - generic [ref=e38]:
+            - paragraph [ref=e39]: EPIC-03 Preview
+            - generic [ref=e40]:
+              - heading "Dashboard Karyawan" [level=1] [ref=e41]
+              - paragraph [ref=e42]: Fondasi UI karyawan untuk training saya, riwayat, dan akun pribadi.
+          - generic [ref=e43]:
+            - button "Lihat Riwayat" [ref=e44]
+            - button "Mulai Training" [ref=e45]
+        - generic [ref=e46]:
+          - generic [ref=e47]:
+            - paragraph [ref=e48]: Total Training
+            - paragraph [ref=e49]: "8"
+            - generic [ref=e50]: Semua training milik karyawan
+          - generic [ref=e51]:
+            - paragraph [ref=e52]: Sedang Berjalan
+            - paragraph [ref=e53]: "3"
+            - generic [ref=e54]: Training aktif saat ini
+          - generic [ref=e55]:
+            - paragraph [ref=e56]: Lulus
+            - paragraph [ref=e57]: "4"
+            - generic [ref=e58]: Training yang sudah lulus
+          - generic [ref=e59]:
+            - paragraph [ref=e60]: Tidak Lulus
+            - paragraph [ref=e61]: "1"
+            - generic [ref=e62]: Butuh retake atau selesai
+        - generic [ref=e64]:
+          - img [ref=e66]
+          - generic [ref=e68]:
+            - paragraph [ref=e69]: Mode Preview
+            - paragraph [ref=e70]: Halaman ini menampilkan card/list flow dan state UI karyawan.
+        - generic [ref=e71]:
+          - generic [ref=e72]:
+            - generic [ref=e73]:
+              - heading "Training Saya" [level=3] [ref=e74]
+              - paragraph [ref=e75]: Preview navigation karyawan, card/list, badge, action button.
+            - generic [ref=e76]: Sedang Berjalan
+          - generic [ref=e77]:
+            - generic [ref=e78]:
+              - generic [ref=e79]:
+                - generic [ref=e80]:
+                  - heading "Training Keselamatan Kerja" [level=4] [ref=e81]
+                  - paragraph [ref=e82]: Materi dasar keselamatan kerja untuk seluruh karyawan.
+                - generic [ref=e83]: Berjalan
+              - paragraph [ref=e84]: "Deadline: 20 Juli 2026"
+              - generic [ref=e87]:
+                - button "Lanjutkan Training" [ref=e88]
+                - button "Detail" [ref=e89]
+            - generic [ref=e90]:
+              - paragraph [ref=e91]: Menunggu Penilaian
+              - generic [ref=e92]: Jawaban essay sedang menunggu penilaian admin. Nilai akhir akan muncul setelah proses review selesai.
+        - generic [ref=e93]:
+          - generic [ref=e94]:
+            - img [ref=e96]
+            - heading "Belum ada riwayat training" [level=3] [ref=e99]
+            - paragraph [ref=e100]: Riwayat training akan muncul setelah training selesai.
+          - generic [ref=e108]:
+            - img [ref=e110]
+            - heading "Gagal memuat training" [level=3] [ref=e112]
+            - paragraph [ref=e113]: Silakan refresh halaman atau hubungi admin training.
+            - button "Muat Ulang" [ref=e114]
+          - generic [ref=e115]:
+            - img [ref=e117]
+            - heading "Progress tersimpan" [level=3] [ref=e119]
+            - paragraph [ref=e120]: Contoh success state untuk proses selesai pada training karyawan.
+            - button "Lihat Detail" [ref=e121]

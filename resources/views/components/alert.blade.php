@@ -3,9 +3,9 @@
 @php
     $variants = [
         'info' => 'border-primary/15 bg-primary-soft/60 text-primary',
-        'success' => 'border-success/15 bg-green-100 text-success',
-        'warning' => 'border-warning/15 bg-amber-100 text-warning',
-        'danger' => 'border-danger/15 bg-red-100 text-danger',
+        'success' => 'border-success/15 bg-success-soft/70 text-success',
+        'warning' => 'border-warning/15 bg-warning-soft/70 text-warning',
+        'danger' => 'border-danger/15 bg-danger-soft/70 text-danger',
     ];
 @endphp
 

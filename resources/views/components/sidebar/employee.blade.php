@@ -1,8 +1,16 @@
 @php
     $menu = [
-        'Dashboard' => ['Dashboard Karyawan'],
-        'Training' => ['Training Saya', 'Riwayat Training'],
-        'Akun' => ['Profil', 'Ubah Password'],
+        'Dashboard' => [
+            ['label' => 'Dashboard Karyawan', 'route' => 'employee.dashboard'],
+        ],
+        'Training' => [
+            ['label' => 'Training Saya', 'route' => 'employee.training.index'],
+            ['label' => 'Riwayat Training', 'route' => 'employee.history.index'],
+        ],
+        'Akun' => [
+            ['label' => 'Profil', 'route' => 'employee.profile.index'],
+            ['label' => 'Ubah Password', 'route' => 'employee.password.index'],
+        ],
     ];
 @endphp
 
@@ -21,8 +29,8 @@
                 <p class="px-3 text-xs font-semibold uppercase tracking-[0.16em] text-graphite">{{ $group }}</p>
                 <div class="space-y-1">
                     @foreach ($items as $item)
-                        <a href="#" class="block rounded-xl px-3 py-2 text-sm font-medium text-charcoal transition hover:bg-primary-soft hover:text-primary">
-                            {{ $item }}
+                        <a href="{{ route($item['route']) }}" class="block rounded-xl px-3 py-2 text-sm font-medium text-charcoal transition hover:bg-primary-soft hover:text-primary">
+                            {{ $item['label'] }}
                         </a>
                     @endforeach
                 </div>

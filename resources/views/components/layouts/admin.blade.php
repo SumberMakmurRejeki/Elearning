@@ -9,12 +9,15 @@
     <body class="min-h-screen bg-cloud text-ink">
         <div class="flex min-h-screen">
             <x-sidebar.admin />
+            <button type="button" class="fixed inset-0 z-30 hidden bg-ink/50 lg:hidden" data-sidebar-overlay="#admin-sidebar" data-toggle-sidebar="#admin-sidebar" aria-label="Tutup sidebar admin"></button>
 
             <div class="flex min-h-screen flex-1 flex-col lg:pl-72">
                 <x-topbar.admin />
 
                 <main class="flex-1 p-4 md:p-6 xl:p-8">
-                    {{ $slot }}
+                    <x-content.container maxWidth="max-w-[1800px]" class="space-y-6">
+                        {{ $slot }}
+                    </x-content.container>
                 </main>
             </div>
         </div>

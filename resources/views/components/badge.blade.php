@@ -2,10 +2,10 @@
 
 @php
     $variants = [
-        'success' => 'bg-green-100 text-success',
-        'warning' => 'bg-amber-100 text-warning',
-        'danger' => 'bg-red-100 text-danger',
-        'info' => 'bg-primary-soft text-primary',
+        'success' => 'bg-success-soft text-success',
+        'warning' => 'bg-warning-soft text-warning',
+        'danger' => 'bg-danger-soft text-danger',
+        'info' => 'bg-info-soft text-primary',
         'ink' => 'bg-ink text-white',
         'neutral' => 'bg-fog text-charcoal',
     ];

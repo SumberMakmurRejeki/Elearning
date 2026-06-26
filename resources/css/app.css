@@ -15,9 +15,15 @@
     --color-ink: #1a1a1a;
     --color-ink-deep: #000000;
     --color-ink-soft: #292929;
+    --color-canvas: #ffffff;
+    --color-paper: #ffffff;
     --color-success: #15803d;
+    --color-success-soft: #dcfce7;
     --color-warning: #b45309;
+    --color-warning-soft: #fef3c7;
     --color-danger: #b3262b;
+    --color-danger-soft: #f9d4d2;
+    --color-info-soft: #c9e0fc;
     --color-cloud: #f7f7f7;
     --color-fog: #e8e8e8;
     --color-steel: #c2c2c2;
@@ -28,5 +34,9 @@
 @layer base {
     body {
         @apply bg-cloud text-ink antialiased;
+    }
+
+    [x-cloak] {
+        display: none !important;
     }
 }

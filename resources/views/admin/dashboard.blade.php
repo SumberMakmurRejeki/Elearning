@@ -1,62 +1,164 @@
-<x-layouts.admin title="Preview Admin UI - {{ config('app.name') }}">
+<x-layouts.admin title="Dashboard Admin - {{ config('app.name') }}">
     <div class="space-y-6">
-        <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-            <x-card.stat label="Total Karyawan" value="128">Data karyawan aktif perusahaan</x-card.stat>
-            <x-card.stat label="Total Training" value="24">Termasuk draft, published, archived</x-card.stat>
-            <x-card.stat label="Training Aktif" value="12">Sedang berjalan bulan ini</x-card.stat>
-            <x-card.stat label="Rata-rata Nilai" value="84">Rata-rata post-test</x-card.stat>
-        </div>
-
-        <x-alert title="UI Foundation Siap" variant="success">
-            Layout admin, sidebar, topbar, komponen form, table, card, badge, modal, dan state sudah dibuat.
-        </x-alert>
+        <x-page.header
+            eyebrow="EPIC-05 Protected Area"
+            title="Dashboard Admin"
+            description="Ringkasan kondisi training untuk memantau jumlah karyawan, progress, nilai, dan kelulusan secara cepat."
+        />
 
         <x-card.base>
-            <div class="mb-4 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-                <div>
-                    <h3 class="text-lg font-semibold text-ink">Contoh Table Karyawan</h3>
-                    <p class="text-sm text-charcoal">Preview komponen table, badge, action button, modal.</p>
-                </div>
-                <div class="flex flex-wrap gap-2">
-                    <x-button.outline>Reset Filter</x-button.outline>
-                    <x-button.primary>Tambah Karyawan</x-button.primary>
-                </div>
-            </div>
+            <form method="GET" action="{{ route('admin.dashboard') }}" class="grid gap-4 xl:grid-cols-[repeat(3,minmax(0,1fr))_auto]">
+                <x-form.select
+                    label="Bulan"
+                    name="month"
+                    :options="$monthOptions"
+                    :selected="$selectedMonth"
+                />
 
-            <x-table.table>
-                <x-table.header>
-                    <tr>
-                        <th class="px-6 py-4">Nama</th>
-                        <th class="px-6 py-4">Username</th>
-                        <th class="px-6 py-4">Divisi</th>
-                        <th class="px-6 py-4">Status</th>
-                        <th class="px-6 py-4 text-right">Aksi</th>
-                    </tr>
-                </x-table.header>
-                <tbody>
-                    <x-table.row>
-                        <td class="px-6 py-4 font-medium text-ink">Budi Santoso</td>
-                        <td class="px-6 py-4">budi01</td>
-                        <td class="px-6 py-4">HRD</td>
-                        <td class="px-6 py-4"><x-badge variant="success">Aktif</x-badge></td>
-                        <td class="px-6 py-4">
-                            <div class="flex justify-end gap-2">
-                                <x-button.icon label="Detail">👁</x-button.icon>
-                                <x-button.icon label="Edit">✎</x-button.icon>
-                                <x-button.icon label="Hapus" data-modal-open="#delete-preview">🗑</x-button.icon>
-                            </div>
-                        </td>
-                    </x-table.row>
-                </tbody>
-            </x-table.table>
+                <x-form.select
+                    label="Tahun"
+                    name="year"
+                    :options="$yearOptions"
+                    :selected="$selectedYear"
+                />
+
+                <x-form.select
+                    label="Training"
+                    name="training_id"
+                    :options="$trainingOptions"
+                    placeholder="Semua training"
+                    :selected="$selectedTrainingId"
+                />
+
+                <div class="flex items-end gap-2">
+                    <x-button.primary type="submit">Terapkan Filter</x-button.primary>
+                    <a href="{{ route('admin.dashboard') }}" class="inline-flex items-center justify-center rounded-lg border border-fog bg-white px-4 py-2.5 text-sm font-semibold text-ink shadow-sm transition hover:border-primary hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">Reset Filter</a>
+                </div>
+            </form>
         </x-card.base>
 
-        <div class="grid gap-6 xl:grid-cols-3">
-            <x-empty-state title="Belum ada data laporan" description="State kosong untuk modul laporan atau monitoring." action-label="Reset Filter" />
-            <x-loading-state :lines="5" />
-            <x-error-state title="Gagal memuat dashboard" description="Contoh state error reusable untuk semua halaman admin." />
-        </div>
-    </div>
+        @if ($hasError)
+            <x-error-state
+                title="Gagal memuat dashboard"
+                description="Data dashboard gagal dimuat"
+                :action-label="null"
+            />
+        @elseif ($hasEmptyState)
+            <x-empty-state
+                title="Data dashboard belum tersedia"
+                description="Tidak ada data sesuai filter yang dipilih"
+                :action-label="null"
+            />
+        @else
+            <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+                @foreach ($summaryCards as $card)
+                    <x-card.stat :label="$card['label']" :value="$card['value']" data-summary="{{ $card['key'] }}">
+                        {{ $card['description'] }}
+                    </x-card.stat>
+                @endforeach
+            </div>
 
-    <x-modal.confirm id="delete-preview" title="Delete Permanen Karyawan" description="Data yang dihapus permanen tidak dapat dikembalikan. Lanjutkan?" confirm-label="Delete Permanen" :danger="true" />
+            <div class="grid gap-6 xl:grid-cols-2">
+                <x-card.base>
+                    <div class="mb-5 flex items-start justify-between gap-4">
+                        <div>
+                            <h3 class="text-lg font-semibold text-ink">Grafik Progress Training</h3>
+                            <p class="text-sm text-charcoal">Distribusi status progress untuk training yang sedang difilter.</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        @foreach ($progressChart as $row)
+                            <div class="space-y-2" data-chart-progress="{{ $row['key'] }}">
+                                <div class="flex items-center justify-between gap-4 text-sm">
+                                    <span class="font-medium text-ink">{{ $row['label'] }}</span>
+                                    <span class="text-graphite">{{ $row['value'] }}</span>
+                                </div>
+                                <div class="h-2 overflow-hidden rounded-full bg-cloud">
+                                    <div class="h-full rounded-full bg-primary transition-all" style="width: {{ $row['percent'] }}%"></div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </x-card.base>
+
+                <x-card.base>
+                    <div class="mb-5 flex items-start justify-between gap-4">
+                        <div>
+                            <h3 class="text-lg font-semibold text-ink">Grafik Kelulusan</h3>
+                            <p class="text-sm text-charcoal">Perbandingan karyawan lulus dan tidak lulus untuk filter aktif.</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        @foreach ($passChart as $row)
+                            <div class="space-y-2" data-chart-pass="{{ $row['key'] }}">
+                                <div class="flex items-center justify-between gap-4 text-sm">
+                                    <span class="font-medium text-ink">{{ $row['label'] }}</span>
+                                    <span class="text-graphite">{{ $row['value'] }}</span>
+                                </div>
+                                <div class="h-2 overflow-hidden rounded-full bg-cloud">
+                                    <div class="h-full rounded-full {{ $row['key'] === 'passed' ? 'bg-success' : 'bg-warning' }} transition-all" style="width: {{ $row['percent'] }}%"></div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </x-card.base>
+            </div>
+
+            <x-card.base>
+                <div class="mb-5 flex items-start justify-between gap-4">
+                    <div>
+                        <h3 class="text-lg font-semibold text-ink">Grafik Nilai Pre-Test vs Post-Test</h3>
+                        <p class="text-sm text-charcoal">Perbandingan rata-rata nilai per training pada filter aktif.</p>
+                    </div>
+                </div>
+
+                @if ($scoreChart === [])
+                    <div class="rounded-2xl border border-dashed border-fog bg-cloud/60 px-6 py-12 text-center text-sm text-charcoal">
+                        Belum ada data nilai pre-test atau post-test untuk filter ini.
+                    </div>
+                @else
+                    <div class="space-y-4">
+                        @foreach ($scoreChart as $row)
+                            <div class="rounded-2xl border border-fog bg-cloud/40 p-4" data-chart-score="{{ $row['key'] }}">
+                                <div class="flex items-center justify-between gap-4">
+                                    <div>
+                                        <p class="font-semibold text-ink">{{ $row['label'] }}</p>
+                                        <p class="text-xs text-graphite">Rata-rata pre-test dan post-test</p>
+                                    </div>
+                                    <div class="text-right text-sm text-charcoal">
+                                        <p>Pre: {{ $row['preScore'] === null ? '—' : number_format($row['preScore'], 1, '.', '') }}</p>
+                                        <p>Post: {{ $row['postScore'] === null ? '—' : number_format($row['postScore'], 1, '.', '') }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="mt-4 grid gap-3 sm:grid-cols-2">
+                                    <div class="space-y-2">
+                                        <div class="flex items-center justify-between text-xs font-semibold uppercase tracking-[0.16em] text-graphite">
+                                            <span>Pre-Test</span>
+                                            <span>{{ $row['preScore'] === null ? '—' : number_format($row['preScore'], 1, '.', '') }}</span>
+                                        </div>
+                                        <div class="h-2 overflow-hidden rounded-full bg-white">
+                                            <div class="h-full rounded-full bg-primary-soft transition-all" style="width: {{ $row['prePercent'] }}%"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="space-y-2">
+                                        <div class="flex items-center justify-between text-xs font-semibold uppercase tracking-[0.16em] text-graphite">
+                                            <span>Post-Test</span>
+                                            <span>{{ $row['postScore'] === null ? '—' : number_format($row['postScore'], 1, '.', '') }}</span>
+                                        </div>
+                                        <div class="h-2 overflow-hidden rounded-full bg-white">
+                                            <div class="h-full rounded-full bg-primary transition-all" style="width: {{ $row['postPercent'] }}%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                @endif
+            </x-card.base>
+        @endif
+    </div>
 </x-layouts.admin>

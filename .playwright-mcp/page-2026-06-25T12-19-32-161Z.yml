@@ -1,0 +1,112 @@
+- generic [ref=e2]:
+  - complementary [ref=e3]:
+    - generic [ref=e5]:
+      - paragraph [ref=e6]: Admin Panel
+      - heading "E-Learning Training Karyawan" [level=1] [ref=e7]
+    - navigation [ref=e8]:
+      - generic [ref=e9]:
+        - paragraph [ref=e10]: Dashboard
+        - link "Dashboard Admin" [ref=e12] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/admin/dashboard
+      - generic [ref=e13]:
+        - paragraph [ref=e14]: Master Data
+        - generic [ref=e15]:
+          - link "Karyawan" [ref=e16] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/admin/karyawan
+          - link "Divisi" [ref=e17] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/admin/divisi
+          - link "Jabatan" [ref=e18] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/admin/jabatan
+      - generic [ref=e19]:
+        - paragraph [ref=e20]: Master Training
+        - generic [ref=e21]:
+          - link "Daftar Training" [ref=e22] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/admin/daftar-training
+          - link "Materi Training" [ref=e23] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/admin/materi-training
+          - link "Soal Test" [ref=e24] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/admin/soal-test
+          - link "Penugasan Training" [ref=e25] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/admin/penugasan-training
+      - generic [ref=e26]:
+        - paragraph [ref=e27]: Penilaian
+        - generic [ref=e28]:
+          - link "Jawaban Essay" [ref=e29] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/admin/jawaban-essay
+          - link "Hasil Test" [ref=e30] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/admin/hasil-test
+      - generic [ref=e31]:
+        - paragraph [ref=e32]: Monitoring & Laporan
+        - generic [ref=e33]:
+          - link "Progress Training" [ref=e34] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/admin/progress-training
+          - link "Laporan" [ref=e35] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/admin/laporan
+          - link "Export Data" [ref=e36] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/admin/export-data
+      - generic [ref=e37]:
+        - paragraph [ref=e38]: Pengaturan User
+        - generic [ref=e39]:
+          - link "Profil Admin" [ref=e40] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/admin/profil
+          - link "Ubah Password" [ref=e41] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/admin/ubah-password
+  - generic [ref=e42]:
+    - banner [ref=e43]:
+      - generic [ref=e44]:
+        - generic [ref=e46]:
+          - paragraph [ref=e47]: Role Admin
+          - heading "Dashboard Admin" [level=2] [ref=e48]
+        - generic [ref=e49]:
+          - generic [ref=e50]:
+            - paragraph [ref=e51]: QA Admin
+            - paragraph [ref=e52]: admin
+          - generic [ref=e53]: QA
+          - button "Logout" [ref=e55]
+    - main [ref=e56]:
+      - generic [ref=e58]:
+        - generic [ref=e59]:
+          - generic [ref=e60]:
+            - paragraph [ref=e61]: Master Data
+            - generic [ref=e62]:
+              - heading "Detail Karyawan" [level=1] [ref=e63]
+              - paragraph [ref=e64]: Lihat ringkasan akun, profil, dan status penggunaan data karyawan.
+          - generic [ref=e65]:
+            - link "Kembali" [ref=e66] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/admin/karyawan
+            - link "Edit Karyawan" [ref=e67] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/admin/karyawan/2/edit
+        - generic [ref=e68]:
+          - generic [ref=e69]:
+            - generic [ref=e70]:
+              - generic [ref=e71]:
+                - paragraph [ref=e72]: Nama Karyawan
+                - heading "Siti Rahma" [level=2] [ref=e73]
+                - paragraph [ref=e74]: siti01
+              - generic [ref=e75]: Nonaktif
+            - generic [ref=e76]:
+              - generic [ref=e77]:
+                - term [ref=e78]: NIP/ID Karyawan
+                - definition [ref=e79]: EMP-002
+              - generic [ref=e80]:
+                - term [ref=e81]: Divisi
+                - definition [ref=e82]: Operasional
+              - generic [ref=e83]:
+                - term [ref=e84]: Jabatan
+                - definition [ref=e85]: Supervisor
+              - generic [ref=e86]:
+                - term [ref=e87]: Login Terakhir
+                - definition [ref=e88]: "-"
+              - generic [ref=e89]:
+                - term [ref=e90]: Dibuat
+                - definition [ref=e91]: 25 Jun 2026, 14:18
+              - generic [ref=e92]:
+                - term [ref=e93]: Diperbarui
+                - definition [ref=e94]: 25 Jun 2026, 14:18
+          - generic [ref=e97]:
+            - heading "Aksi Cepat" [level=3] [ref=e98]
+            - paragraph [ref=e99]: Nonaktifkan, reset password, atau hapus permanen dari halaman detail ini.
+            - generic [ref=e100]:
+              - button "Reset Password" [ref=e101]
+              - button "Aktifkan" [ref=e102]
+              - button "Delete Permanen" [ref=e103]

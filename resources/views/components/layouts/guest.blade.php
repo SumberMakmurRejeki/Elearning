@@ -8,7 +8,9 @@
     </head>
     <body class="min-h-screen bg-cloud text-ink">
         <main class="flex min-h-screen items-center justify-center px-4 py-8">
-            {{ $slot }}
+            <x-content.container maxWidth="max-w-5xl" class="flex justify-center">
+                {{ $slot }}
+            </x-content.container>
         </main>
     </body>
 </html>

@@ -1,0 +1,54 @@
+- generic [ref=e2]:
+  - complementary [ref=e3]:
+    - generic [ref=e5]:
+      - paragraph [ref=e6]: Portal Karyawan
+      - heading "E-Learning Training Karyawan" [level=1] [ref=e7]
+    - navigation [ref=e8]:
+      - generic [ref=e9]:
+        - paragraph [ref=e10]: Dashboard
+        - link "Dashboard Karyawan" [ref=e12] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/ui-preview/employee
+      - generic [ref=e13]:
+        - paragraph [ref=e14]: Training
+        - generic [ref=e15]:
+          - link "Training Saya" [ref=e16] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/employee/training-saya
+          - link "Riwayat Training" [ref=e17] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/employee/riwayat-training
+      - generic [ref=e18]:
+        - paragraph [ref=e19]: Akun
+        - generic [ref=e20]:
+          - link "Profil" [ref=e21] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/employee/profil
+          - link "Ubah Password" [ref=e22] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/employee/ubah-password
+  - generic [ref=e23]:
+    - banner [ref=e24]:
+      - generic [ref=e25]:
+        - generic [ref=e27]:
+          - paragraph [ref=e28]: Preview UI Foundation
+          - heading "Dashboard Karyawan" [level=2] [ref=e29]
+        - generic [ref=e30]:
+          - generic [ref=e31]:
+            - paragraph [ref=e32]: Budi Santoso
+            - paragraph [ref=e33]: karyawan
+          - generic [ref=e34]: BS
+    - main [ref=e35]:
+      - generic [ref=e37]:
+        - generic [ref=e38]:
+          - generic [ref=e39]:
+            - paragraph [ref=e40]: Placeholder Routing
+            - generic [ref=e41]:
+              - heading "Training Saya" [level=1] [ref=e42]
+              - paragraph [ref=e43]: Placeholder untuk halaman training saya.
+          - generic [ref=e44]:
+            - link "Kembali ke Preview" [ref=e45] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/ui-preview/employee
+            - button "Aksi Dummy" [ref=e46]
+        - generic [ref=e48]:
+          - generic [ref=e49]: EPIC-03 Routing Awal
+          - paragraph [ref=e50]: Halaman ini adalah placeholder untuk jalur navigasi awal. Konten fitur nyata akan diisi pada epic berikutnya.
+          - generic [ref=e51]:
+            - img [ref=e53]
+            - heading "Belum ada konten fitur" [level=3] [ref=e56]
+            - paragraph [ref=e57]: Gunakan halaman ini untuk memastikan route, layout, dan navigasi sudah tersambung dengan benar.

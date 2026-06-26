@@ -1,0 +1,144 @@
+- generic [ref=e2]:
+  - complementary [ref=e3]:
+    - generic [ref=e5]:
+      - paragraph [ref=e6]: Admin Panel
+      - heading "E-Learning Training Karyawan" [level=1] [ref=e7]
+    - navigation [ref=e8]:
+      - generic [ref=e9]:
+        - paragraph [ref=e10]: Dashboard
+        - link "Dashboard Admin" [ref=e12] [cursor=pointer]:
+          - /url: "#"
+      - generic [ref=e13]:
+        - paragraph [ref=e14]: Master Data
+        - generic [ref=e15]:
+          - link "Karyawan" [ref=e16] [cursor=pointer]:
+            - /url: "#"
+          - link "Divisi" [ref=e17] [cursor=pointer]:
+            - /url: "#"
+          - link "Jabatan" [ref=e18] [cursor=pointer]:
+            - /url: "#"
+      - generic [ref=e19]:
+        - paragraph [ref=e20]: Master Training
+        - generic [ref=e21]:
+          - link "Daftar Training" [ref=e22] [cursor=pointer]:
+            - /url: "#"
+          - link "Materi Training" [ref=e23] [cursor=pointer]:
+            - /url: "#"
+          - link "Soal Test" [ref=e24] [cursor=pointer]:
+            - /url: "#"
+          - link "Penugasan Training" [ref=e25] [cursor=pointer]:
+            - /url: "#"
+      - generic [ref=e26]:
+        - paragraph [ref=e27]: Penilaian
+        - generic [ref=e28]:
+          - link "Jawaban Essay" [ref=e29] [cursor=pointer]:
+            - /url: "#"
+          - link "Hasil Test" [ref=e30] [cursor=pointer]:
+            - /url: "#"
+      - generic [ref=e31]:
+        - paragraph [ref=e32]: Monitoring & Laporan
+        - generic [ref=e33]:
+          - link "Progress Training" [ref=e34] [cursor=pointer]:
+            - /url: "#"
+          - link "Laporan" [ref=e35] [cursor=pointer]:
+            - /url: "#"
+          - link "Export Data" [ref=e36] [cursor=pointer]:
+            - /url: "#"
+      - generic [ref=e37]:
+        - paragraph [ref=e38]: Pengaturan User
+        - generic [ref=e39]:
+          - link "Profil Admin" [ref=e40] [cursor=pointer]:
+            - /url: "#"
+          - link "Ubah Password" [ref=e41] [cursor=pointer]:
+            - /url: "#"
+  - generic [ref=e42]:
+    - banner [ref=e43]:
+      - generic [ref=e44]:
+        - generic [ref=e46]:
+          - paragraph [ref=e47]: Preview UI Foundation
+          - heading "Dashboard Admin" [level=2] [ref=e48]
+        - generic [ref=e49]:
+          - generic [ref=e50]:
+            - paragraph [ref=e51]: Admin Training
+            - paragraph [ref=e52]: admin
+          - generic [ref=e53]: AT
+    - main [ref=e54]:
+      - generic [ref=e56]:
+        - generic [ref=e57]:
+          - generic [ref=e58]:
+            - paragraph [ref=e59]: EPIC-03 Preview
+            - generic [ref=e60]:
+              - heading "Dashboard Admin" [level=1] [ref=e61]
+              - paragraph [ref=e62]: Fondasi UI admin untuk pengelolaan data, training, dan monitoring.
+          - generic [ref=e63]:
+            - button "Export Preview" [ref=e64]
+            - button "Tambah Karyawan" [ref=e65]
+        - generic [ref=e66]:
+          - generic [ref=e67]:
+            - paragraph [ref=e68]: Total Karyawan
+            - paragraph [ref=e69]: "128"
+            - generic [ref=e70]: Data karyawan aktif perusahaan
+          - generic [ref=e71]:
+            - paragraph [ref=e72]: Total Training
+            - paragraph [ref=e73]: "24"
+            - generic [ref=e74]: Termasuk draft, published, archived
+          - generic [ref=e75]:
+            - paragraph [ref=e76]: Training Aktif
+            - paragraph [ref=e77]: "12"
+            - generic [ref=e78]: Sedang berjalan bulan ini
+          - generic [ref=e79]:
+            - paragraph [ref=e80]: Rata-rata Nilai
+            - paragraph [ref=e81]: "84"
+            - generic [ref=e82]: Rata-rata post-test
+        - generic [ref=e84]:
+          - img [ref=e86]
+          - generic [ref=e88]:
+            - paragraph [ref=e89]: UI Foundation Siap
+            - paragraph [ref=e90]: Layout admin, sidebar, topbar, komponen form, table, card, badge, modal, dan state sudah dibuat.
+        - generic [ref=e91]:
+          - generic [ref=e92]:
+            - generic [ref=e93]:
+              - heading "Contoh Table Karyawan" [level=3] [ref=e94]
+              - paragraph [ref=e95]: Preview komponen table, badge, action button, modal.
+            - generic [ref=e96]:
+              - button "Reset Filter" [ref=e97]
+              - button "Tambah Karyawan" [ref=e98]
+          - table [ref=e101]:
+            - rowgroup [ref=e102]:
+              - row "Nama Username Divisi Status Aksi" [ref=e103]:
+                - columnheader "Nama" [ref=e104]
+                - columnheader "Username" [ref=e105]
+                - columnheader "Divisi" [ref=e106]
+                - columnheader "Status" [ref=e107]
+                - columnheader "Aksi" [ref=e108]
+            - rowgroup [ref=e109]:
+              - row "Budi Santoso budi01 HRD Aktif Detail Edit Hapus" [ref=e110]:
+                - cell "Budi Santoso" [ref=e111]
+                - cell "budi01" [ref=e112]
+                - cell "HRD" [ref=e113]
+                - cell "Aktif" [ref=e114]:
+                  - generic [ref=e115]: Aktif
+                - cell "Detail Edit Hapus" [ref=e116]:
+                  - generic [ref=e117]:
+                    - button "Detail" [ref=e118]:
+                      - img [ref=e119]
+                    - button "Edit" [ref=e122]:
+                      - img [ref=e123]
+                    - button "Hapus" [ref=e126]:
+                      - img [ref=e127]
+        - generic [ref=e131]:
+          - generic [ref=e132]:
+            - img [ref=e134]
+            - heading "Belum ada data laporan" [level=3] [ref=e137]
+            - paragraph [ref=e138]: State kosong untuk modul laporan atau monitoring.
+            - button "Reset Filter" [ref=e139]
+          - generic [ref=e148]:
+            - img [ref=e150]
+            - heading "Gagal memuat dashboard" [level=3] [ref=e152]
+            - paragraph [ref=e153]: Contoh state error reusable untuk semua halaman admin.
+            - button "Coba Lagi" [ref=e154]
+          - generic [ref=e155]:
+            - img [ref=e157]
+            - heading "Sukses menyimpan data" [level=3] [ref=e159]
+            - paragraph [ref=e160]: Contoh success state reusable untuk notifikasi selesai simpan atau update.
+            - button "Lihat Detail" [ref=e161]

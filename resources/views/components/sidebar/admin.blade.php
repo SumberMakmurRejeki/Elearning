@@ -1,11 +1,32 @@
 @php
     $menu = [
-        'Dashboard' => ['Dashboard Admin'],
-        'Master Data' => ['Karyawan', 'Divisi', 'Jabatan'],
-        'Master Training' => ['Daftar Training', 'Materi Training', 'Soal Test', 'Penugasan Training'],
-        'Penilaian' => ['Jawaban Essay', 'Hasil Test'],
-        'Monitoring & Laporan' => ['Progress Training', 'Laporan', 'Export Data'],
-        'Pengaturan User' => ['Profil Admin', 'Ubah Password'],
+        'Dashboard' => [
+            ['label' => 'Dashboard Admin', 'route' => 'admin.dashboard'],
+        ],
+        'Master Data' => [
+            ['label' => 'Karyawan', 'route' => 'admin.karyawan.index'],
+            ['label' => 'Divisi', 'route' => 'admin.divisi.index'],
+            ['label' => 'Jabatan', 'route' => 'admin.jabatan.index'],
+        ],
+        'Master Training' => [
+            ['label' => 'Daftar Training', 'route' => 'admin.training.index'],
+            ['label' => 'Materi Training', 'route' => 'admin.materi.index'],
+            ['label' => 'Soal Test', 'route' => 'admin.soal.index'],
+            ['label' => 'Penugasan Training', 'route' => 'admin.penugasan.index'],
+        ],
+        'Penilaian' => [
+            ['label' => 'Jawaban Essay', 'route' => 'admin.jawaban-essay.index'],
+            ['label' => 'Hasil Test', 'route' => 'admin.hasil-test.index'],
+        ],
+        'Monitoring & Laporan' => [
+            ['label' => 'Progress Training', 'route' => 'admin.progress.index'],
+            ['label' => 'Laporan', 'route' => 'admin.laporan.index'],
+            ['label' => 'Export Data', 'route' => 'admin.export.index'],
+        ],
+        'Pengaturan User' => [
+            ['label' => 'Profil Admin', 'route' => 'admin.profile.index'],
+            ['label' => 'Ubah Password', 'route' => 'admin.password.index'],
+        ],
     ];
 @endphp
 
@@ -24,8 +45,8 @@
                 <p class="px-3 text-xs font-semibold uppercase tracking-[0.16em] text-graphite">{{ $group }}</p>
                 <div class="space-y-1">
                     @foreach ($items as $item)
-                        <a href="#" class="block rounded-xl px-3 py-2 text-sm font-medium text-charcoal transition hover:bg-primary-soft hover:text-primary">
-                            {{ $item }}
+                        <a href="{{ route($item['route']) }}" class="block rounded-xl px-3 py-2 text-sm font-medium text-charcoal transition hover:bg-primary-soft hover:text-primary">
+                            {{ $item['label'] }}
                         </a>
                     @endforeach
                 </div>

@@ -1,0 +1,99 @@
+- generic [ref=e2]:
+  - complementary [ref=e3]:
+    - generic [ref=e5]:
+      - paragraph [ref=e6]: Admin Panel
+      - heading "E-Learning Training Karyawan" [level=1] [ref=e7]
+    - navigation [ref=e8]:
+      - generic [ref=e9]:
+        - paragraph [ref=e10]: Dashboard
+        - link "Dashboard Admin" [ref=e12] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/admin/dashboard
+      - generic [ref=e13]:
+        - paragraph [ref=e14]: Master Data
+        - generic [ref=e15]:
+          - link "Karyawan" [ref=e16] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/admin/karyawan
+          - link "Divisi" [ref=e17] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/admin/divisi
+          - link "Jabatan" [ref=e18] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/admin/jabatan
+      - generic [ref=e19]:
+        - paragraph [ref=e20]: Master Training
+        - generic [ref=e21]:
+          - link "Daftar Training" [ref=e22] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/admin/daftar-training
+          - link "Materi Training" [ref=e23] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/admin/materi-training
+          - link "Soal Test" [ref=e24] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/admin/soal-test
+          - link "Penugasan Training" [ref=e25] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/admin/penugasan-training
+      - generic [ref=e26]:
+        - paragraph [ref=e27]: Penilaian
+        - generic [ref=e28]:
+          - link "Jawaban Essay" [ref=e29] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/admin/jawaban-essay
+          - link "Hasil Test" [ref=e30] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/admin/hasil-test
+      - generic [ref=e31]:
+        - paragraph [ref=e32]: Monitoring & Laporan
+        - generic [ref=e33]:
+          - link "Progress Training" [ref=e34] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/admin/progress-training
+          - link "Laporan" [ref=e35] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/admin/laporan
+          - link "Export Data" [ref=e36] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/admin/export-data
+      - generic [ref=e37]:
+        - paragraph [ref=e38]: Pengaturan User
+        - generic [ref=e39]:
+          - link "Profil Admin" [ref=e40] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/admin/profil
+          - link "Ubah Password" [ref=e41] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/ui-preview/admin/ubah-password
+  - generic [ref=e42]:
+    - banner [ref=e43]:
+      - generic [ref=e44]:
+        - generic [ref=e46]:
+          - paragraph [ref=e47]: Role Admin
+          - heading "Dashboard Admin" [level=2] [ref=e48]
+        - generic [ref=e49]:
+          - generic [ref=e50]:
+            - paragraph [ref=e51]: Admin Training
+            - paragraph [ref=e52]: admin
+          - generic [ref=e53]: AT
+          - button "Logout" [ref=e55]
+    - main [ref=e56]:
+      - generic [ref=e58]:
+        - generic [ref=e59]:
+          - generic [ref=e60]:
+            - paragraph [ref=e61]: Master Data
+            - generic [ref=e62]:
+              - heading "Edit Jabatan" [level=1] [ref=e63]
+              - paragraph [ref=e64]: Perbarui informasi jabatan yang sudah ada.
+          - generic [ref=e65]:
+            - link "Lihat Detail" [ref=e66] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/admin/jabatan/1
+            - link "Kembali" [ref=e67] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/admin/jabatan
+        - generic [ref=e69]:
+          - generic [ref=e70]:
+            - generic [ref=e71]:
+              - generic [ref=e72]: Nama Jabatan
+              - textbox "Nama Jabatan" [ref=e73]:
+                - /placeholder: "Contoh: Supervisor"
+                - text: Staff
+            - generic [ref=e74]:
+              - generic [ref=e75]: Status
+              - combobox "Status" [ref=e76]:
+                - option "Aktif" [selected]
+                - option "Nonaktif"
+          - generic [ref=e77]:
+            - generic [ref=e78]: Deskripsi
+            - textbox "Deskripsi" [ref=e79]:
+              - /placeholder: "Opsional: jelaskan fungsi jabatan"
+              - text: Staff umum
+          - generic [ref=e80]:
+            - link "Batal" [ref=e81] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/admin/jabatan
+            - button "Simpan Perubahan" [ref=e82]
