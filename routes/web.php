@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\TrainingMaterialController;
 use App\Http\Controllers\Admin\TrainingController;
 use App\Http\Controllers\Employee\EmployeeDashboardController;
 use App\Http\Controllers\Employee\EmployeeTrainingController;
+use App\Http\Controllers\Employee\EmployeeMaterialController;
 use App\Http\Controllers\Admin\EmployeeController;
 use App\Http\Controllers\Admin\DivisionController;
 use App\Http\Controllers\Admin\PositionController;
@@ -104,6 +105,10 @@ Route::middleware(['auth', 'active', 'role:karyawan'])->group(function () use ($
 
     Route::get('/karyawan/training-saya', [EmployeeTrainingController::class, 'index'])->name('employee.training.index');
     Route::get('/karyawan/training-saya/{training}', [EmployeeTrainingController::class, 'show'])->name('employee.training.show');
+    Route::get('/karyawan/training-saya/{training}/materi', [EmployeeMaterialController::class, 'index'])->name('employee.material.index');
+    Route::get('/karyawan/training-saya/{training}/materi/{material}/view', [EmployeeMaterialController::class, 'view'])->name('employee.material.view');
+    Route::get('/karyawan/training-saya/{training}/materi/{material}/download', [EmployeeMaterialController::class, 'download'])->name('employee.material.download');
+    Route::get('/karyawan/training-saya/{training}/materi/{material}/open-link', [EmployeeMaterialController::class, 'openLink'])->name('employee.material.open-link');
     Route::get('/karyawan/training-saya/{training}/{action}', [EmployeeTrainingController::class, 'action'])->name('employee.training.action');
 
     Route::get('/ui-preview/employee/training-saya', $placeholder('employee', 'Training Saya', 'Placeholder untuk halaman training saya.'))->name('preview.employee.training');

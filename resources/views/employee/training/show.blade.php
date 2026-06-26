@@ -109,15 +109,19 @@
                         <h2 class="text-lg font-semibold text-ink">Aksi Training</h2>
                         <p class="text-sm text-charcoal">Tombol berikut masih berupa placeholder untuk task langkah selanjutnya.</p>
 
-                        <div class="flex flex-col gap-3">
-                            @if ($primaryAction)
-                                <x-button.link href="{{ $primaryAction['href'] }}" variant="primary">{{ $primaryAction['label'] }}</x-button.link>
-                            @endif
+                    <div class="flex flex-col gap-3">
+                        @if ($activeMaterialsCount > 0)
+                            <x-button.link href="{{ route('employee.material.index', $training) }}" variant="primary">Lihat Materi</x-button.link>
+                        @endif
 
-                            @if ($secondaryAction)
-                                <x-button.link href="{{ $secondaryAction['href'] }}">{{ $secondaryAction['label'] }}</x-button.link>
-                            @endif
-                        </div>
+                        @if ($primaryAction)
+                            <x-button.link href="{{ $primaryAction['href'] }}">{{ $primaryAction['label'] }}</x-button.link>
+                        @endif
+
+                        @if ($secondaryAction)
+                            <x-button.link href="{{ $secondaryAction['href'] }}">{{ $secondaryAction['label'] }}</x-button.link>
+                        @endif
+                    </div>
                     </x-card.base>
                 </div>
             </div>
