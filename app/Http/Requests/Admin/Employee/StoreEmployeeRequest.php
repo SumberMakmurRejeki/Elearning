@@ -24,6 +24,7 @@ class StoreEmployeeRequest extends FormRequest
             'division_id' => ['required', 'integer', 'exists:divisions,id'],
             'position_id' => ['required', 'integer', 'exists:positions,id'],
             'is_active' => ['required', 'boolean'],
+            'role' => ['required', 'string', 'in:karyawan,admin'],
         ];
     }
 
@@ -46,6 +47,8 @@ class StoreEmployeeRequest extends FormRequest
             'position_id.exists' => 'Jabatan tidak valid.',
             'is_active.required' => 'Status akun wajib dipilih.',
             'is_active.boolean' => 'Status akun tidak valid.',
+            'role.required' => 'Role wajib dipilih.',
+            'role.in' => 'Role harus karyawan atau admin.',
         ];
     }
 }

@@ -80,7 +80,7 @@ class EmployeeController extends Controller
                     'name' => $validated['name'],
                     'username' => $validated['username'],
                     'password' => $validated['password'],
-                    'role' => 'karyawan',
+                    'role' => $validated['role'] ?? 'karyawan',
                     'is_active' => $request->boolean('is_active'),
                 ]);
 
@@ -138,7 +138,7 @@ class EmployeeController extends Controller
                     'name' => $validated['name'],
                     'username' => $validated['username'],
                     'is_active' => $request->boolean('is_active'),
-                    'role' => 'karyawan',
+                    'role' => $validated['role'] ?? 'karyawan',
                 ]);
 
                 if ($request->filled('password')) {

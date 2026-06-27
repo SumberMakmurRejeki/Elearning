@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminProgressMonitoringController;
+use App\Http\Controllers\Admin\ProfileController as AdminProfileController;
 use App\Http\Controllers\Admin\QuestionController;
 use App\Http\Controllers\Admin\EssayAnswerController;
 use App\Http\Controllers\Admin\TestResultController;
@@ -15,6 +16,7 @@ use App\Http\Controllers\Employee\EmployeeTrainingController;
 use App\Http\Controllers\Employee\EmployeeMaterialController;
 use App\Http\Controllers\Employee\EmployeePreTestController;
 use App\Http\Controllers\Employee\EmployeePostTestController;
+use App\Http\Controllers\Employee\ProfileController as EmployeeProfileController;
 use App\Http\Controllers\Admin\EmployeeController;
 use App\Http\Controllers\Admin\DivisionController;
 use App\Http\Controllers\Admin\PositionController;
@@ -111,6 +113,9 @@ Route::middleware(['auth', 'active', 'role:admin'])->group(function () use ($pla
     Route::get('/admin/laporan/{training}', [ReportController::class, 'show'])->name('admin.laporan.show');
     Route::get('/ui-preview/admin/export-data', $placeholder('admin', 'Export Data', 'Placeholder untuk halaman export data.'))->name('admin.export.index');
     Route::get('/ui-preview/admin/profil', $placeholder('admin', 'Profil Admin', 'Placeholder untuk halaman profil admin.'))->name('admin.profile.index');
+    Route::get('/admin/profile', [AdminProfileController::class, 'show'])->name('admin.profile.show');
+    Route::patch('/admin/profile', [AdminProfileController::class, 'update'])->name('admin.profile.update');
+    Route::patch('/admin/profile/password', [AdminProfileController::class, 'updatePassword'])->name('admin.profile.update-password');
     Route::get('/ui-preview/admin/ubah-password', $placeholder('admin', 'Ubah Password', 'Placeholder untuk halaman ubah password admin.'))->name('admin.password.index');
 });
 
@@ -134,5 +139,8 @@ Route::middleware(['auth', 'active', 'role:karyawan'])->group(function () use ($
     Route::get('/ui-preview/employee/training-saya', $placeholder('employee', 'Training Saya', 'Placeholder untuk halaman training saya.'))->name('preview.employee.training');
     Route::get('/ui-preview/employee/riwayat-training', $placeholder('employee', 'Riwayat Training', 'Placeholder untuk halaman riwayat training.'))->name('employee.history.index');
     Route::get('/ui-preview/employee/profil', $placeholder('employee', 'Profil', 'Placeholder untuk halaman profil karyawan.'))->name('employee.profile.index');
+    Route::get('/karyawan/profile', [EmployeeProfileController::class, 'show'])->name('employee.profile.show');
+    Route::patch('/karyawan/profile', [EmployeeProfileController::class, 'update'])->name('employee.profile.update');
+    Route::patch('/karyawan/profile/password', [EmployeeProfileController::class, 'updatePassword'])->name('employee.profile.update-password');
     Route::get('/ui-preview/employee/ubah-password', $placeholder('employee', 'Ubah Password', 'Placeholder untuk halaman ubah password karyawan.'))->name('employee.password.index');
 });

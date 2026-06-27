@@ -8,8 +8,7 @@
             ['label' => 'Riwayat Training', 'route' => 'employee.history.index'],
         ],
         'Akun' => [
-            ['label' => 'Profil', 'route' => 'employee.profile.index'],
-            ['label' => 'Ubah Password', 'route' => 'employee.password.index'],
+            ['label' => 'Profil & Password', 'route' => 'employee.profile.show'],
         ],
     ];
 @endphp

@@ -42,6 +42,7 @@ class AdminEmployeeTest extends TestCase
                 'division_id' => $reference['division_id'],
                 'position_id' => $reference['position_id'],
                 'is_active' => true,
+                'role' => 'karyawan',
             ])
             ->assertRedirect(route('admin.karyawan.index'));
 
@@ -84,6 +85,7 @@ class AdminEmployeeTest extends TestCase
                 'division_id' => 'Divisi wajib dipilih.',
                 'position_id' => 'Jabatan wajib dipilih.',
                 'is_active' => 'Status akun wajib dipilih.',
+                'role' => 'Role wajib dipilih.',
             ]);
     }
 
@@ -107,6 +109,7 @@ class AdminEmployeeTest extends TestCase
                 'division_id' => $reference['division_id'],
                 'position_id' => $reference['position_id'],
                 'is_active' => false,
+                'role' => 'karyawan',
             ])
             ->assertRedirect(route('admin.karyawan.index'));
 
@@ -268,6 +271,158 @@ class AdminEmployeeTest extends TestCase
         $this->assertDatabaseHas('employees', [
             'id' => $employee->id,
         ]);
+    }
+
+    public function test_admin_can_create_employee_as_admin_role(): void
+    {
+        $admin = $this->makeAdmin();
+        $reference = $this->seedReferenceData();
+
+        $this->actingAs($admin)
+            ->post(route('admin.karyawan.store'), [
+                'name' => 'Admin Baru',
+                'username' => 'admin.baru',
+                'password' => 'password123',
+                'password_confirmation' => 'password123',
+                'employee_number' => 'EMP-ADMIN-001',
+                'division_id' => $reference['division_id'],
+                'position_id' => $reference['position_id'],
+                'is_active' => true,
+                'role' => 'admin',
+            ])
+            ->assertRedirect(route('admin.karyawan.index'));
+
+        $this->assertDatabaseHas('users', [
+            'username' => 'admin.baru',
+            'name' => 'Admin Baru',
+            'role' => 'admin',
+        ]);
+    }
+
+    public function test_admin_can_create_employee_as_karyawan_role(): void
+    {
+        $admin = $this->makeAdmin();
+        $reference = $this->seedReferenceData();
+
+        $this->actingAs($admin)
+            ->post(route('admin.karyawan.store'), [
+                'name' => 'Karyawan Baru',
+                'username' => 'karyawan.baru',
+                'password' => 'password123',
+                'password_confirmation' => 'password123',
+                'employee_number' => 'EMP-KRY-001',
+                'division_id' => $reference['division_id'],
+                'position_id' => $reference['position_id'],
+                'is_active' => true,
+                'role' => 'karyawan',
+            ])
+            ->assertRedirect(route('admin.karyawan.index'));
+
+        $this->assertDatabaseHas('users', [
+            'username' => 'karyawan.baru',
+            'role' => 'karyawan',
+        ]);
+    }
+
+    public function test_employee_create_rejects_invalid_role(): void
+    {
+        $admin = $this->makeAdmin();
+        $reference = $this->seedReferenceData();
+
+        $this->actingAs($admin)
+            ->from(route('admin.karyawan.create'))
+            ->post(route('admin.karyawan.store'), [
+                'name' => 'Bad Role',
+                'username' => 'bad.role',
+                'password' => 'password123',
+                'password_confirmation' => 'password123',
+                'employee_number' => 'EMP-BAD',
+                'division_id' => $reference['division_id'],
+                'position_id' => $reference['position_id'],
+                'is_active' => true,
+                'role' => 'superadmin',
+            ])
+            ->assertRedirect(route('admin.karyawan.create'))
+            ->assertSessionHasErrors('role');
+    }
+
+    public function test_admin_can_update_employee_role(): void
+    {
+        $admin = $this->makeAdmin();
+        $reference = $this->seedReferenceData();
+        $employee = $this->makeEmployee($reference, [
+            'employee_number' => 'EMP-ROLE-001',
+            'name' => 'Role User',
+            'username' => 'role.user',
+        ]);
+
+        // Verify initial role is karyawan
+        $this->assertEquals('karyawan', $employee->user->role);
+
+        // Update role to admin
+        $this->actingAs($admin)
+            ->put(route('admin.karyawan.update', $employee), [
+                'name' => 'Role User Updated',
+                'username' => 'role.user',
+                'password' => '',
+                'password_confirmation' => '',
+                'employee_number' => 'EMP-ROLE-001',
+                'division_id' => $reference['division_id'],
+                'position_id' => $reference['position_id'],
+                'is_active' => true,
+                'role' => 'admin',
+            ])
+            ->assertRedirect(route('admin.karyawan.index'));
+
+        $this->assertDatabaseHas('users', [
+            'id' => $employee->user_id,
+            'role' => 'admin',
+            'name' => 'Role User Updated',
+        ]);
+    }
+
+    public function test_employee_update_rejects_invalid_role(): void
+    {
+        $admin = $this->makeAdmin();
+        $reference = $this->seedReferenceData();
+        $employee = $this->makeEmployee($reference, [
+            'employee_number' => 'EMP-ROLE-002',
+            'name' => 'Role Update User',
+            'username' => 'role.update',
+        ]);
+
+        $this->actingAs($admin)
+            ->from(route('admin.karyawan.edit', $employee))
+            ->put(route('admin.karyawan.update', $employee), [
+                'name' => 'Role Update User',
+                'username' => 'role.update',
+                'password' => '',
+                'password_confirmation' => '',
+                'employee_number' => 'EMP-ROLE-002',
+                'division_id' => $reference['division_id'],
+                'position_id' => $reference['position_id'],
+                'is_active' => true,
+                'role' => 'invalid-role',
+            ])
+            ->assertRedirect(route('admin.karyawan.edit', $employee))
+            ->assertSessionHasErrors('role');
+    }
+
+    public function test_admin_index_shows_role_badge(): void
+    {
+        $admin = $this->makeAdmin();
+        $reference = $this->seedReferenceData();
+        $this->makeEmployee($reference, [
+            'employee_number' => 'EMP-BADGE-001',
+            'name' => 'Badge User',
+            'username' => 'badge.user',
+        ]);
+
+        $this->actingAs($admin)
+            ->get(route('admin.karyawan.index'))
+            ->assertOk()
+            ->assertSeeText('Karyawan')
+            ->assertSeeText('Admin');
     }
 
     public function test_admin_can_delete_unused_employee_permanently(): void

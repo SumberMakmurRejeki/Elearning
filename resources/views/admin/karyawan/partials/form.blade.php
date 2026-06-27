@@ -57,6 +57,14 @@
         />
 
         <x-form.select
+            label="Role"
+            name="role"
+            :options="['karyawan' => 'Karyawan', 'admin' => 'Admin']"
+            placeholder="Pilih role"
+            :selected="old('role', $user->role ?? 'karyawan')"
+        />
+
+        <x-form.select
             label="Status Akun"
             name="is_active"
             :options="$statusOptions"
