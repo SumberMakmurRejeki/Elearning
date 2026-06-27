@@ -15,7 +15,7 @@
             ['label' => 'Penugasan Training', 'route' => 'admin.penugasan.index'],
         ],
         'Penilaian' => [
-            ['label' => 'Jawaban Essay', 'route' => 'admin.jawaban-essay.index'],
+            ['label' => 'Jawaban Essay', 'route' => 'admin.essay-answers.index'],
             ['label' => 'Hasil Test', 'route' => 'admin.hasil-test.index'],
         ],
         'Monitoring & Laporan' => [

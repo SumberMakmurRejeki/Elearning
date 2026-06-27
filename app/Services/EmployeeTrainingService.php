@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\Employee;
 use App\Models\EmployeeTrainingProgress;
+use App\Models\TestAttempt;
 use App\Models\Training;
 use App\Models\TrainingAssignment;
 use App\Models\User;
@@ -95,6 +96,34 @@ class EmployeeTrainingService
 
         $finalStatus = $progress?->final_status;
 
+        $postTestAttempts = TestAttempt::query()
+            ->where('employee_id', $employee->id)
+            ->where('training_id', $training->id)
+            ->where('test_type', 'post_test')
+            ->get();
+
+        $attemptCount = $postTestAttempts->count();
+
+        $bestScore = $postTestAttempts->filter(fn (TestAttempt $a): bool => $a->final_score !== null)
+            ->max(fn (TestAttempt $a): float => (float) $a->final_score);
+
+        $hasPendingEssay = $postTestAttempts->contains(fn (TestAttempt $a): bool => $a->grading_status === 'waiting_manual_review');
+
+        $isPassed = $progress?->final_status === 'passed';
+
+        $retakeAllowed = $training->allow_post_test_retake
+            && ! $isPassed
+            && ! $hasPendingEssay
+            && $postTestAttempts->isNotEmpty();
+
+        $maxAttempts = $training->max_post_test_attempt;
+
+        if ($retakeAllowed && $maxAttempts !== null && $attemptCount >= $maxAttempts) {
+            $retakeAllowed = false;
+        }
+
+        $retakeAttemptsRemaining = $maxAttempts !== null ? max(0, $maxAttempts - $attemptCount) : null;
+
         return [
             'employee' => $employee->loadMissing('user'),
             'training' => $training,
@@ -120,6 +149,12 @@ class EmployeeTrainingService
             'stepCards' => $this->stepCards($training, $progress, $activeMaterialsCount, $preTestQuestionCount, $postTestQuestionCount),
             'primaryAction' => $this->primaryAction($training, $progress, $activeMaterialsCount, $preTestQuestionCount, $postTestQuestionCount),
             'secondaryAction' => $this->secondaryAction($training, $progress, $activeMaterialsCount),
+            'attemptCount' => $attemptCount,
+            'bestScoreLabel' => $bestScore !== null ? number_format((float) $bestScore, 2) : null,
+            'retakeAllowed' => $retakeAllowed,
+            'retakeAttemptsRemaining' => $retakeAttemptsRemaining,
+            'hasPendingEssay' => $hasPendingEssay,
+            'isPassed' => $isPassed,
         ];
     }
 

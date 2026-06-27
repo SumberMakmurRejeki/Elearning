@@ -102,8 +102,45 @@
                                     <p class="mt-2 text-sm font-semibold text-ink">{{ $finalScoreLabel }}</p>
                                 </div>
                             @endif
+                            @if ($hasPostTest)
+                                <div class="rounded-2xl bg-cloud/70 p-4">
+                                    <p class="text-xs font-semibold uppercase tracking-[0.16em] text-graphite">Jumlah Attempt Post-Test</p>
+                                    <p class="mt-2 text-sm font-semibold text-ink">{{ $attemptCount ?? 0 }}</p>
+                                </div>
+                            @endif
                         </div>
                     </x-card.base>
+
+                    @if ($hasPostTest && ($retakeAllowed ?? false))
+                        <x-card.base class="space-y-4 border-warning/20 bg-warning-soft/10">
+                            <h2 class="text-lg font-semibold text-warning">Kesempatan Retake</h2>
+                            <p class="text-sm text-charcoal">
+                                @if ($retakeAttemptsRemaining !== null)
+                                    Sisa kesempatan mengulang post-test: {{ $retakeAttemptsRemaining }}.
+                                @else
+                                    Retake post-test diizinkan tanpa batas kesempatan.
+                                @endif
+                                Nilai terbaik Anda akan digunakan sebagai nilai akhir.
+                            </p>
+                            <form method="POST" action="{{ route('employee.post-test.retake', $training) }}">
+                                @csrf
+                                <x-button.primary type="submit" class="w-full">Ulangi Post-Test</x-button.primary>
+                            </form>
+                        </x-card.base>
+                    @endif
+
+                    @if ($hasPostTest && ! ($retakeAllowed ?? false) && ! ($isPassed ?? false) && ! ($hasPendingEssay ?? false) && ($attemptCount ?? 0) > 0)
+                        <x-card.base class="space-y-4 border-fog">
+                            <h2 class="text-lg font-semibold text-ink">Post-Test Selesai</h2>
+                            <p class="text-sm text-charcoal">
+                                @if (($training->allow_post_test_retake ?? false) && ($training->max_post_test_attempt ?? null) !== null && ($attemptCount ?? 0) >= $training->max_post_test_attempt)
+                                    Kesempatan mengulang post-test sudah habis.
+                                @else
+                                    Anda belum memenuhi syarat untuk mengulang post-test.
+                                @endif
+                            </p>
+                        </x-card.base>
+                    @endif
 
                     <x-card.base class="space-y-4">
                         <h2 class="text-lg font-semibold text-ink">Aksi Training</h2>
